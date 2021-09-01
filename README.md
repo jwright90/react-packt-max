@@ -11,3 +11,6 @@ Follow along Packt React Tutorial
 
 ### Props
 * Data is received into the component from outside of the function.
+
+### Wrapper Components
+* Created 'wrapper' component by using {props.children}, then using 'className' as a prop of the wrapper.
