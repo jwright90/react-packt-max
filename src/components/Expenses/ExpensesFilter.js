@@ -3,7 +3,7 @@ import './ExpensesFilter.css';
 const ExpensesFilter = (props) => {
 
   const onDropdownChangeHandler = (e) => {
-    props.onDropdownChange(e.target.value); {/* Call the function defined in the parent element through props when a change occurs */ }
+    props.onDropdownChange(e.target.value);
   }
 
   return (

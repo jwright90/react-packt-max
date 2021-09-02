@@ -3,16 +3,10 @@ import ExpenseItem from './ExpenseItem';
 import ExpensesFilter from './ExpensesFilter';
 import Card from '../UI/Card';
 
-// Expenses is the parent element of ExpensesFilter
-// We can pass a function down to a component, and then call that function inside the child component
-// when something happens
-
 const Expenses = (props) => {
 
-  { /* Use state to define state with the dropdown year*/ }
   const [dropdownYear, setDropdownYear] = useState('2020');
 
-  {/* Define a function that takes in an argument */ }
   const dropdownChangeHandler = selectedYear => {
     setDropdownYear(selectedYear);
   }
@@ -22,27 +16,15 @@ const Expenses = (props) => {
 
       <Card className="expenses">
         <ExpensesFilter selected={dropdownYear} onDropdownChange={dropdownChangeHandler} />
-        {/* Add a prop that points to a function */}
-        <ExpenseItem
-          title={props.items[0].title}
-          amount={props.items[0].amount}
-          date={props.items[0].date}
-        />
-        <ExpenseItem
-          title={props.items[1].title}
-          amount={props.items[1].amount}
-          date={props.items[1].date}
-        />
-        <ExpenseItem
-          title={props.items[2].title}
-          amount={props.items[2].amount}
-          date={props.items[2].date}
-        />
-        <ExpenseItem
-          title={props.items[3].title}
-          amount={props.items[3].amount}
-          date={props.items[3].date}
-        />
+
+        {props.items.map(expense => (
+          <ExpenseItem
+            title={expense.title}
+            amount={expense.amount}
+            date={expense.date}
+          />
+        ))}
+
       </Card>
     </div>
   );
